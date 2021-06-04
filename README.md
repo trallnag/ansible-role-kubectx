@@ -1,6 +1,6 @@
-[![role](https://img.shields.io/ansible/role/54857)](https://galaxy.ansible.com/trallnag/kubectx)
-[![quality](https://img.shields.io/ansible/quality/54857)](https://galaxy.ansible.com/trallnag/kubectx)
-[![downloads](https://img.shields.io/ansible/role/d/54857?label=downloads)](https://galaxy.ansible.com/trallnag/kubectx)
+[![role](https://img.shields.io/ansible/role/55230)](https://galaxy.ansible.com/trallnag/kubectx)
+[![quality](https://img.shields.io/ansible/quality/55230)](https://galaxy.ansible.com/trallnag/kubectx)
+[![downloads](https://img.shields.io/ansible/role/d/55230?label=downloads)](https://galaxy.ansible.com/trallnag/kubectx)
 
 # kubectx
 
