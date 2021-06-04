@@ -1,0 +1,55 @@
+- name: Check if `kubectl` exists
+  shell: |
+    if ! command -v kubectl &> /dev/null
+    then
+      echo "kubectl could not be found"
+      exit 1
+    fi
+  args:
+    executable: /bin/bash
+  changed_when: false
+
+- name: Download kubectx version `{{ kubectx_version }}`
+  become: true
+  get_url:
+    url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubectx_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+
+- name: Create dir for kubectx archive
+  become: true
+  file:
+    path: /tmp/kubectx-{{ kubectx_version }}
+    state: directory
+
+- name: Unarchive kubectx archive
+  become: true
+  unarchive:
+    src: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}/
+    remote_src: true
+
+- name: Copy file with owner and permissions
+  become: true
+  copy:
+    src: /tmp/kubectx-{{ kubectx_version }}/kubectx
+    dest: /usr/local/bin/kubectx-{{ kubectx_version }}
+    mode: u=rwx,g=rx,o=rx
+    owner: root
+    group: root
+    remote_src: true
+
+- name: Create a symbolic link `kubectx` to `kubectx-{{ kubectx_version }}`
+  become: true
+  file:
+    src: /usr/local/bin/kubectx-{{ kubectx_version }}
+    dest: /usr/local/bin/kubectx
+    state: link
+
+- name: Download bash completion script and place it
+  become: true
+  get_url:
+    url: https://raw.githubusercontent.com/ahmetb/kubectx/v{{ kubectx_version }}/completion/kubectx.bash
+    dest: /usr/share/bash-completion/completions/kubectx
+    mode: u=rw,g=r,o=r
+    owner: root
+    group: root
