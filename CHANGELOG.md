@@ -11,6 +11,12 @@ specification.
 
 * Nothing
 
+## [1.0.1] 2021-07-06 
+
+### Fixed
+
+* Removed empty requirements file leading to warning during forced installation.
+
 ## [1.0.0] 2021-06-04 
 
 * Intial release.
