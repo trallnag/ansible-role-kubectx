@@ -2,9 +2,11 @@
 [![quality](https://img.shields.io/ansible/quality/55230)](https://galaxy.ansible.com/trallnag/kubectx)
 [![downloads](https://img.shields.io/ansible/role/d/55230?label=downloads)](https://galaxy.ansible.com/trallnag/kubectx)
 
-# kubectx
+# Ansible Role `trallnag.kubectx`
 
-Install kubectx on Linux.
+Install [kubectx][kubectx] on Linux.
+
+[kubectx]: https://github.com/ahmetb/kubectx
 
 Available on [Ansible Galaxy](https://galaxy.ansible.com/trallnag/kubectx).
 
@@ -12,16 +14,17 @@ Available on [Ansible Galaxy](https://galaxy.ansible.com/trallnag/kubectx).
 
 ```yaml
 kubectx_version:
-  type: int
-  required: false
-  default: 0.9.3
-  description: >-
-    Version to use. Only 0.9.0 upwards supported.
-
-kubectx_arch:
+  default: 0.9.4
   type: str
   required: false
+  description: >-
+    Version to use. Only 0.9.0 upwards supported. Check here:
+    <https://github.com/ahmetb/kubectx/releases>.
+
+kubectx_arch:
   default: x86_64
+  type: str
+  required: false
   choices: ["x86_64", "arm64", "armhf", "armv7", "ppc64le"]
   description: >-
     Architecture to use.
@@ -38,7 +41,7 @@ kubectx_arch:
   roles:
     - name: trallnag.kubectx
       vars:
-        kubectx_version: 0.9.3
+        kubectx_version: 0.9.4
         kubectx_arch: x86_64
 ```
 

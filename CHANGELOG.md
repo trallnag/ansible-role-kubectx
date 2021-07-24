@@ -11,13 +11,20 @@ specification.
 
 * Nothing
 
-## [1.0.1] 2021-07-06 
+## [1.0.2] 2021-07-24
+
+### Changed
+
+* Improved documentation.
+* Bumped default version from `0.9.3` to `0.9.4`.
+
+## [1.0.1] 2021-07-06
 
 ### Fixed
 
 * Removed empty requirements file leading to warning during forced installation.
 
-## [1.0.0] 2021-06-04 
+## [1.0.0] 2021-06-04
 
 * Intial release.
 
