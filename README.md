@@ -4,7 +4,7 @@
 
 # Ansible Role `trallnag.kubectx`
 
-Install [kubectx][kubectx] on Linux.
+Ansible role that installs [kubectx][kubectx] on Linux.
 
 [kubectx]: https://github.com/ahmetb/kubectx
 
@@ -47,9 +47,7 @@ kubectx_arch:
 
 ## Special Requirements
 
-* Linux only.
-* Bash completion only.
-* `kubectl` must be installed.
+None.
 
 ## Special Dependencies
 

@@ -11,6 +11,13 @@ specification.
 
 * Nothing
 
+## [1.0.3] 2021-07-25
+
+### Changed
+
+* Refactored code to use handlers.
+* Docs and stuff.
+
 ## [1.0.2] 2021-07-24
 
 ### Changed
