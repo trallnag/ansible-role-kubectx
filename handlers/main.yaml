@@ -1,26 +1,26 @@
 - name: Download archive to tmp
   get_url:
-    url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubens_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
-    dest: /tmp/kubens-{{ kubectx_version }}.tar.gz
+    url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubectx_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}.tar.gz
   become: true
 
 - name: Create temporary dir for unpacked archive
   file:
-    path: /tmp/kubens-{{ kubectx_version }}
+    path: /tmp/kubectx-{{ kubectx_version }}
     state: directory
   become: true
 
 - name: Unarchive archive to temporary dir
   unarchive:
-    src: /tmp/kubens-{{ kubectx_version }}.tar.gz
-    dest: /tmp/kubens-{{ kubectx_version }}/
+    src: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}/
     remote_src: true
   become: true
 
 - name: Copy file with owner and permissions
   copy:
-    src: /tmp/kubens-{{ kubectx_version }}/kubens
-    dest: /usr/local/bin/kubens
+    src: /tmp/kubectx-{{ kubectx_version }}/kubectx
+    dest: /usr/local/bin/kubectx
     mode: u=rwx,g=rx,o=rx
     owner: root
     group: root
@@ -29,8 +29,8 @@
 
 - name: Download bash completion script and place it
   get_url:
-    url: https://raw.githubusercontent.com/ahmetb/kubectx/v{{ kubectx_version }}/completion/kubens.bash
-    dest: /usr/share/bash-completion/completions/kubens
+    url: https://raw.githubusercontent.com/ahmetb/kubectx/v{{ kubectx_version }}/completion/kubectx.bash
+    dest: /usr/share/bash-completion/completions/kubectx
     mode: u=rw,g=r,o=r
     owner: root
     group: root

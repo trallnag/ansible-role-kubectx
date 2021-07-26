@@ -11,6 +11,12 @@ specification.
 
 * Nothing
 
+## [1.0.4] 2021-07-26
+
+### Fixed
+
+* Overwrites kubens with kubectx.
+
 ## [1.0.3] 2021-07-25
 
 ### Changed
