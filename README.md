@@ -18,7 +18,7 @@ kubectx_version:
   type: str
   required: false
   description: >-
-    Version to use. Only 0.9.0 upwards supported. Check here:
+    Version to use. Only 0.9.4 upwards supported. Check here:
     <https://github.com/ahmetb/kubectx/releases>.
 
 kubectx_arch:
