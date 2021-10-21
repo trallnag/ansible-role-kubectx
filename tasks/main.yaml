@@ -2,7 +2,7 @@
 
 
 - name: Check kubectx status
-  shell: |
+  ansible.builtin.shell: |
     if [ "$(kubectx --version)" != "{{ kubectx_version }}" ]; then
       echo 'install required'
     fi
@@ -15,21 +15,21 @@
 
 - name: Download archive to tmp
   when: "'install required' in kubectx_status.stdout"
-  get_url:
+  ansible.builtin.get_url:
     url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubectx_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
     dest: /tmp/kubectx-{{ kubectx_version }}.tar.gz
   become: true
 
 - name: Create temporary dir for unpacked archive
   when: "'install required' in kubectx_status.stdout"
-  file:
+  ansible.builtin.file:
     path: /tmp/kubectx-{{ kubectx_version }}
     state: directory
   become: true
 
 - name: Unarchive archive to temporary dir
   when: "'install required' in kubectx_status.stdout"
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/kubectx-{{ kubectx_version }}.tar.gz
     dest: /tmp/kubectx-{{ kubectx_version }}/
     remote_src: true
@@ -37,7 +37,7 @@
 
 - name: Copy file with owner and permissions
   when: "'install required' in kubectx_status.stdout"
-  copy:
+  ansible.builtin.copy:
     src: /tmp/kubectx-{{ kubectx_version }}/kubectx
     dest: /usr/local/bin/kubectx
     mode: u=rwx,g=rx,o=rx
