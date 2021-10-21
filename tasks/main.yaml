@@ -50,3 +50,14 @@
 
 
 # ------------------------------------------------------------------------------
+
+
+- name: Ensure correct version of kubectx is installed
+  ansible.builtin.shell: |
+    if [ "$(kubectx --version)" != "{{ kubectx_version }}" ]; then
+      exit 1
+    fi
+  changed_when: false
+
+
+# ------------------------------------------------------------------------------
