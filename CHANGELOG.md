@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/trallnag/ansible-role-kubectx/compare/1.0.6...1.1.0) (2021-10-21)
+
+
+### 📝 Documentation
+
+* **readme:** Fix formatting error ([a70605a](https://github.com/trallnag/ansible-role-kubectx/commit/a70605a12289662a17bb0739d99570fb1ae9952e))
+
+
+### ✨ Features
+
+* Add task that checks for success ([970f43e](https://github.com/trallnag/ansible-role-kubectx/commit/970f43e1b5f6ee3a793b9b9896df4320def2cfe6))
+
 ### [1.0.6](https://github.com/trallnag/ansible-role-kubectx/compare/1.0.5...1.0.6) (2021-10-21)
 
 
