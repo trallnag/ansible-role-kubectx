@@ -4,7 +4,7 @@
 
 # Ansible Role `trallnag.kubectx`
 
-Ansible role that installs the Go version of [`kubectx`][https://github.com/ahmetb/kubectx].
+Ansible role that installs the Go version of [`kubectx`](https://github.com/ahmetb/kubectx).
 
 Available on [Ansible Galaxy](https://galaxy.ansible.com/trallnag/kubectx).
 
