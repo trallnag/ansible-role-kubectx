@@ -1,12 +1,50 @@
-- name: Check if kubectx in the correct version is installed
+# ------------------------------------------------------------------------------
+
+
+- name: Check kubectx status
   shell: |
     if [ "$(kubectx --version)" != "{{ kubectx_version }}" ]; then
-      echo status=changed
+      echo 'install required'
     fi
-  register: task
-  changed_when: "'status=changed' in task.stdout"
-  notify:
-    - "{{ role_name }} : Download archive to tmp"
-    - "{{ role_name }} : Create temporary dir for unpacked archive"
-    - "{{ role_name }} : Unarchive archive to temporary dir"
-    - "{{ role_name }} : Copy file with owner and permissions"
+  register: kubectx_status
+  changed_when: "'install required' in task.stdout"
+
+
+# ------------------------------------------------------------------------------
+
+
+- name: Download archive to tmp
+  when: "'install required' in kubectx_status.stdout"
+  get_url:
+    url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubectx_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+  become: true
+
+- name: Create temporary dir for unpacked archive
+  when: "'install required' in kubectx_status.stdout"
+  file:
+    path: /tmp/kubectx-{{ kubectx_version }}
+    state: directory
+  become: true
+
+- name: Unarchive archive to temporary dir
+  when: "'install required' in kubectx_status.stdout"
+  unarchive:
+    src: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+    dest: /tmp/kubectx-{{ kubectx_version }}/
+    remote_src: true
+  become: true
+
+- name: Copy file with owner and permissions
+  when: "'install required' in kubectx_status.stdout"
+  copy:
+    src: /tmp/kubectx-{{ kubectx_version }}/kubectx
+    dest: /usr/local/bin/kubectx
+    mode: u=rwx,g=rx,o=rx
+    owner: root
+    group: root
+    remote_src: true
+  become: true
+
+
+# ------------------------------------------------------------------------------
