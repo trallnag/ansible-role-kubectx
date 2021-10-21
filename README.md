@@ -1,3 +1,4 @@
+[![primary](https://github.com/trallnag/ansible-role-kubectx/actions/workflows/primary.yaml/badge.svg)](https://github.com/trallnag/ansible-role-kubectx/actions/workflows/primary.yaml)
 [![role](https://img.shields.io/ansible/role/55230)](https://galaxy.ansible.com/trallnag/kubectx)
 [![quality](https://img.shields.io/ansible/quality/55230)](https://galaxy.ansible.com/trallnag/kubectx)
 [![downloads](https://img.shields.io/ansible/role/d/55230?label=downloads)](https://galaxy.ansible.com/trallnag/kubectx)
