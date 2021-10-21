@@ -26,13 +26,3 @@
     group: root
     remote_src: true
   become: true
-
-- name: Download bash completion script and place it
-  get_url:
-    url: https://raw.githubusercontent.com/ahmetb/kubectx/v{{ kubectx_version }}/completion/kubectx.bash
-    dest: /usr/share/bash-completion/completions/kubectx
-    mode: u=rw,g=r,o=r
-    owner: root
-    group: root
-    force: true
-  become: true

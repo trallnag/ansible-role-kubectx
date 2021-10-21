@@ -10,4 +10,3 @@
     - "{{ role_name }} : Create temporary dir for unpacked archive"
     - "{{ role_name }} : Unarchive archive to temporary dir"
     - "{{ role_name }} : Copy file with owner and permissions"
-    - "{{ role_name }} : Download bash completion script and place it"
