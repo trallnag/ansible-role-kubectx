@@ -18,13 +18,14 @@
   ansible.builtin.get_url:
     url: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectx_version }}/kubectx_v{{ kubectx_version }}_linux_{{ kubectx_arch }}.tar.gz
     dest: /tmp/kubectx-{{ kubectx_version }}.tar.gz
+    force: true
   become: true
 
 - name: Create temporary dir for unpacked archive
   when: "'install required' in kubectx_status.stdout"
-  ansible.builtin.file:
-    path: /tmp/kubectx-{{ kubectx_version }}
-    state: directory
+  ansible.builtin.shell: |
+    rm -rf /tmp/kubectx-{{ kubectx_version }} || true
+    mkdir -p /tmp/kubectx-{{ kubectx_version }}
   become: true
 
 - name: Unarchive archive to temporary dir
