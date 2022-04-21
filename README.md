@@ -1,3 +1,14 @@
+---
+
+⚠️ **IMPORTANT NOTICE** ⚠️
+
+**Not maintained anymore. Instead of using a dedicated Ansible Role I switched to installing kubectx / kubens via asdf.**
+
+- **<https://github.com/trallnag/asdf-kubectx>**
+- **<https://github.com/trallnag/ansible-role-asdf-plugin>**
+
+---
+
 [![primary](https://github.com/trallnag/ansible-role-kubectx/actions/workflows/primary.yaml/badge.svg)](https://github.com/trallnag/ansible-role-kubectx/actions/workflows/primary.yaml)
 [![role](https://img.shields.io/ansible/role/55230)](https://galaxy.ansible.com/trallnag/kubectx)
 [![quality](https://img.shields.io/ansible/quality/55230)](https://galaxy.ansible.com/trallnag/kubectx)
